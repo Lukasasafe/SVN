@@ -1,0 +1,27 @@
+Uma característica importante do sistema de arquivos Subversion é propriedades: simples nome = valor pares de texto. Propriedades ocorrer em dois lugares diferentes no sistema de arquivos Subversion. A primeira é sobre as entradas do sistema de arquivos (por exemplo, arquivos e diretórios). Estas são versões assim como outras alterações no sistema de arquivos. Os usuários podem adicionar qualquer imóvel que deseja, eo cliente Subversion usa um conjunto de propriedades, o que prefixos com 'svn:.
+svn: executable 
+Faz arquivos em Unix executável cópias de trabalho hospedada.
+svn: mime-type 
+Armazena o tipo de mídia Internet ("Tipo MIME") de um arquivo. Afeta a manipulação de diffs e concentração.
+svn: ignore 
+A lista de padrões de nomes de arquivos a ignorar em um diretório. Semelhante ao CVS 's cvsignore. arquivo.
+svn: keywords 
+A lista de palavras-chave para substituir em um arquivo quando são feitas alterações. O arquivo em si também deve referenciar as palavras-chave como palavra-chave $ $ ou $ keyword: ... $ . Isto é usado para manter certas informações (por exemplo, autor, data da última mudança, o número de revisão) em um arquivo sem intervenção humana. 
+O mecanismo de substituição da palavra se origina de RCS [ 9 ] e do CVS.
+svn: eol-style 
+Faz com que o cliente converter fim-de-linha de caracteres em arquivos de texto. Usado quando a cópia de trabalho é necessário, com um estilo EOL específico. "Nativo" é comumente utilizado, de modo que EOLs corresponder OS estilo EOL do usuário. Repositórios podem exigir que esta propriedade em todos os arquivos para prevenir finais de linha inconsistentes, o que pode causar um problema em si.
+svn: externos 
+Permite que partes de outros repositórios de ser automaticamente o check-out em um sub-diretório.
+svn: needs-lock 
+Especifica que um arquivo deve ser verificado com permissões de arquivo definido para somente leitura. Isto é concebido para utilização com o mecanismo de bloqueio. A permissão somente leitura lembra um para obter um bloqueio antes de modificar o arquivo: a obtenção de um bloqueio faz com que o arquivo gravável, e liberar o bloqueio torna somente leitura novamente. Locks só são aplicadas durante uma operação de commit. Os bloqueios podem ser utilizados sem a definição dessa propriedade. No entanto, isso não é recomendado, porque introduz o risco de alguém modificar um arquivo bloqueado, pois eles só vão descobrir que foi bloqueada quando o commit falhar.
+svn: special 
+Esta propriedade não se destina a ser fixados ou alterados diretamente pelos usuários. A partir de 2010 usado apenas para ter links simbólicos no repositório. Quando um link simbólico é adicionado ao repositório, um arquivo contendo o destino do link é criado com este conjunto de propriedades. Quando um sistema Unix-like verifica esse arquivo, o cliente converte-lo para um link simbólico.
+svn: mergeinfo 
+Usado para monitorar os dados merge (números de revisão) no Subversion 1.5 (ou posterior). Esta propriedade é automaticamente mantida pela fusão de comando, e não é recomendado para alterar o valor manualmente. [ 10 ]
+Subversion também usa propriedades em si revisões. Como as propriedades acima de entradas do sistema de arquivos os nomes são completamente arbitrária, com o cliente Subversion utilizando certas propriedades prefixados com 'svn:. No entanto, essas propriedades não são versões e pode ser alterado posteriormente.
+svn: date 
+a data e hora de uma revisão
+svn: author 
+o nome do utilizador que enviou a alteração (ões)
+svn: log 
+a descrição fornecida pelo usuário da mudança (s);
